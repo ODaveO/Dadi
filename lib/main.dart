@@ -6,7 +6,7 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.red,
         appBar: AppBar(
-          title: Text('Dicee'),
+          title: Center(child: Text('Dicee')),
           backgroundColor: Colors.red,
         ),
         body: DicePage(),
@@ -24,15 +24,18 @@ class DicePage extends StatelessWidget {
           //crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              child: Image.asset(
-                'images/dice1.png',
+              child: TextButton(
+                child: Image.asset(
+                  'images/dice1.png',
+                ),
               ),
               flex: 1,
             ),
-            SizedBox(width: 20),
             Expanded(
-              child: Image.asset(
-                'images/dice6.png',
+              child: TextButton(
+                child: Image.asset(
+                  'images/dice6.png',
+                ),
               ),
               flex: 1,
             ),
