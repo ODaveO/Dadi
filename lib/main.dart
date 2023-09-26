@@ -18,6 +18,7 @@ void main() {
 class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var leftDiceNumber = 2;
     return Center(
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,19 +26,35 @@ class DicePage extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: TextButton(
+                onPressed: () {
+                  Text('LEFT button pressed',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20));
+                  print('LEFT button pressed');
+                },
                 child: Image.asset(
-                  'images/dice1.png',
+                  'images/dice$leftDiceNumber.png',
                 ),
               ),
-              flex: 1,
+              flex: 1, //define proportional size
             ),
             Expanded(
               child: TextButton(
+                onPressed: () {
+                  Text('RIGHT button pressed',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20));
+                  print('RIGHT button pressed');
+                },
                 child: Image.asset(
                   'images/dice6.png',
                 ),
               ),
-              flex: 1,
+              flex: 1, //define proportional size
             ),
           ]),
     );
