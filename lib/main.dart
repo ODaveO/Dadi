@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
@@ -21,7 +22,15 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  var leftDiceNumber = 1;
+  //var leftDiceNumber = 1;
+  var leftDiceNumber = Random().nextInt(5) + 1; // Value is >= 0 and < 5.
+  var rightDiceNumber = Random().nextInt(5) + 1; // Value is >= 0 and < 5.
+
+  void changeFace() {
+    leftDiceNumber = Random().nextInt(5) + 1; // Value is >= 50 and < 150.
+    rightDiceNumber = Random().nextInt(5) + 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -40,8 +49,10 @@ class _DicePageState extends State<DicePage> {
                   print('LEFT button pressed');
                   setState(() {
                     //EVENTO CHE RICHIAMA "Widget build" PER RICREARE L'INTERFACCIA UTENTE
-                    leftDiceNumber = 6;
-                    print('Il dado sinistro è stato aggiornato');
+                    //leftDiceNumber = 6;
+                    changeFace();
+                    // Value is >= 50 and < 150.
+                    print('Il dado sinistro vale $leftDiceNumber');
                   });
                 },
                 child: Image.asset(
@@ -59,9 +70,22 @@ class _DicePageState extends State<DicePage> {
                           color: Colors.black,
                           fontSize: 20));
                   print('RIGHT button pressed');
+
+                  setState(() {
+                    //EVENTO CHE RICHIAMA "Widget build" PER RICREARE L'INTERFACCIA UTENTE
+                    changeFace();
+                    /*
+                    //leftDiceNumber = 6;
+                    leftDiceNumber =
+                        Random().nextInt(5) + 1; // Value is >= 50 and < 150.
+                    rightDiceNumber =
+                        Random().nextInt(5) + 1; // Value is >= 50 and < 150.
+                    */
+                    print('Il dado DESTRO vale $rightDiceNumber');
+                  });
                 },
                 child: Image.asset(
-                  'images/dice1.png',
+                  'images/dice$rightDiceNumber.png',
                 ),
               ),
               flex: 1, //define proportional size
