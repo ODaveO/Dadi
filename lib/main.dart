@@ -15,10 +15,15 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  var leftDiceNumber = 2;
   @override
   Widget build(BuildContext context) {
-    var leftDiceNumber = 2;
     return Center(
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,6 +65,55 @@ class DicePage extends StatelessWidget {
     );
   }
 }
+
+/*
+class DicePage extends StatelessWidget {
+  var leftDiceNumber = 2;
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: TextButton(
+                onPressed: () {
+                  Text('LEFT button pressed',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20));
+                  print('LEFT button pressed');
+                },
+                child: Image.asset(
+                  'images/dice$leftDiceNumber.png',
+                ),
+              ),
+              flex: 1, //define proportional size
+            ),
+            Expanded(
+              child: TextButton(
+                onPressed: () {
+                  Text('RIGHT button pressed',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20));
+                  print('RIGHT button pressed');
+                },
+                child: Image.asset(
+                  'images/dice6.png',
+                ),
+              ),
+              flex: 1, //define proportional size
+            ),
+          ]),
+    );
+  }
+}
+
+*/
 
 /*
 Image(
