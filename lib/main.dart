@@ -21,7 +21,7 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  var leftDiceNumber = 2;
+  var leftDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -38,6 +38,11 @@ class _DicePageState extends State<DicePage> {
                           color: Colors.black,
                           fontSize: 20));
                   print('LEFT button pressed');
+                  setState(() {
+                    //EVENTO CHE RICHIAMA "Widget build" PER RICREARE L'INTERFACCIA UTENTE
+                    leftDiceNumber = 6;
+                    print('Il dado sinistro è stato aggiornato');
+                  });
                 },
                 child: Image.asset(
                   'images/dice$leftDiceNumber.png',
@@ -56,7 +61,7 @@ class _DicePageState extends State<DicePage> {
                   print('RIGHT button pressed');
                 },
                 child: Image.asset(
-                  'images/dice6.png',
+                  'images/dice1.png',
                 ),
               ),
               flex: 1, //define proportional size
